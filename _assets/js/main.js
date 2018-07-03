@@ -36,10 +36,8 @@ map.on('load', function(e) {
 });*/
 map.on('click', function(e) {
   var features = map.queryRenderedFeatures(e.point, {
-    layers: ['campaigns'] // replace this with the name of the layer
+    layers: ['campaigns-de'] // replace this with the name of the layer
   });
-
-  console.log(features);
 
   if (!features.length) {
     return;
@@ -50,7 +48,7 @@ map.on('click', function(e) {
   var popup = new mapboxgl.Popup({ offset: [0, -15] })
 
     .setLngLat(feature.geometry.coordinates)
-    .setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.subh + '</p>')
+    .setHTML('<div class="img-background" style="background-image: url(/template/_assets/img/'+ feature.properties.img +')"><h3>' + feature.properties.title + '</h3></div><p>' + feature.properties.subh + '</p>')
     .setLngLat(feature.geometry.coordinates)
     .addTo(map);
 });
