@@ -50,7 +50,7 @@ map.on('click', function(e) {
   var popup = new mapboxgl.Popup({ offset: [0, -15] })
 
     .setLngLat(feature.geometry.coordinates)
-    .setHTML('<div class="img-background" style="background-image: url(/template/_assets/img/'+ feature.properties.img +')">' + feature.properties.title + '</div><p>' + feature.properties.subh +" "+ '</p><a class="popup-link" target="_blank" href="'+ feature.properties.url +'">Mehr Info </a>')
+    .setHTML('<div class="img-background" style="background-image: url(/campaign-map/_assets/img/'+ feature.properties.img +')">' + feature.properties.title + '</div><p>' + feature.properties.subh +" "+ '</p><a class="popup-link" target="_blank" href="'+ feature.properties.url +'">Mehr Info </a>')
     .setLngLat(feature.geometry.coordinates)
     .addTo(map);
 });
