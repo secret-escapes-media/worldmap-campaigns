@@ -4,7 +4,7 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiaGFtaXNoamdyYXkiLCJhIjoiY2pkbjBmeGN6MDd1YzMzbXI3cWdpNThjayJ9.3YE8T1H2QUyqNIkxdKWxkg';
 var map = new mapboxgl.Map({
     container: 'map',
-    style:'mapbox://styles/hamishjgray/cjj4dn4jk3f8x2rl8ln5ibwb2'
+    style:'mapbox://styles/hamishjgray/cjj70waf71ymc2rpiit0qioxe'
     /*style: 'mapbox://styles/hamishjgray/cjj4dae1p02kc2ssabbz8jihh'*/
     //
 });
@@ -36,7 +36,7 @@ map.on('load', function(e) {
 });*/
 map.on('click', function(e) {
   var features = map.queryRenderedFeatures(e.point, {
-    layers: ['campaigns'] // replace this with the name of the layer
+    layers: ['campaigns-de'] // replace this with the name of the layer
   });
 
   console.log(features);
@@ -50,7 +50,7 @@ map.on('click', function(e) {
   var popup = new mapboxgl.Popup({ offset: [0, -15] })
 
     .setLngLat(feature.geometry.coordinates)
-    .setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.subh + '</p>')
+    .setHTML('<div class="img-background" style="background-image: url(/template/_assets/img/'+ feature.properties.img +')">' + feature.properties.title + '</div><p>' + feature.properties.subh +" "+ '</p><a class="popup-link" target="_blank" href="'+ feature.properties.url +'">Mehr Info </a>')
     .setLngLat(feature.geometry.coordinates)
     .addTo(map);
 });

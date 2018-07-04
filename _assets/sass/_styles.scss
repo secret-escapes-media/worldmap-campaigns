@@ -2,16 +2,46 @@
 
 #map {
   width: 100%;
-  height:740px;
+  height: 700px;
+}
+@media only screen and (max-width: 992px) {
+  #map {
+
+    height: 500px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  #map {
+
+    height: 400px;
+  }
 }
 
-.marker {
-  display: block;
-margin-top: -5px;
-  width: 50px;
-  height: 30px;
-  background: url(../img/icons/map-pin.svg);
+.mapboxgl-popup{
+margin: 0px;
+  width: 270px;
+  font-size: 16px;
+  line-height: 1.5;
+}
 
-background-size: 50px 30px;
+.img-background {
+  /**/padding-top: 50px;
+  padding-bottom: 60px;
+  margin: 0px!important;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+  vertical-align: middle;
+  /*background-size: cover;*/
+  background-color: $grey;}
 
+.popup-link{
+color: #ff8c00;
+font-weight: bold;
+
+}
+.popup-link::after{
+width: 5px;
+  content: url(/template/_assets/img/icons/ext-link.png);
 }
