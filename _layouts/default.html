@@ -3,15 +3,15 @@
 
   {% include page/head.html %}
 
-  <body>
+  <body onload="on()">
 
     {% include components/tracking.html %}
 
     {% include page/header.html %}
 
-  
 
-    <div class="content-spacing section-spacing">
+
+    <div class="content-spacing section-spacing" style="height:100%;">
       {{ content }}
     </div>
 

@@ -6,6 +6,32 @@ nav-order: 1
 title: Overview
 intro: this is my home page
 ---
+
+<div id="overlay" onclick="off()">
+
+  <div class="overlay__content">
+    <h1 class="title--xl title text--white">Travelguide</h1>
+
+    <div class="space--sm"></div>
+  <a class="btn btn--orange ">Jetzt mehr erfahren</a>
+</div>
+
+
+</div>
+
+
+<script>
+function on() {
+    document.getElementById("overlay").style.display = "block";
+}
+
+function off() {
+    document.getElementById("overlay").style.display = "none";
+}
+</script>
+
+
+
 <div id='map' ></div>
 
 <script>
