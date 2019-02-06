@@ -39,7 +39,7 @@ gulp.task('serve', ['build-jekyll'], function() {
     server: {
       baseDir: '_site/',
       routes: {
-        '/campaign-map': '_site/'
+        '/de/campaign-map': '_site/'
       }
     }
   });

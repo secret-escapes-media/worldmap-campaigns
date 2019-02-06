@@ -74,10 +74,10 @@ countries:
     <h1 class="title--lg title text--white">Wohin geht Ihre nächste <br>Traumreise?</h1>
 
     <div class="space--xl"></div>
-  <a class="btn btn--orange">Jetzt inspirieren lassen</a>
+  <a class="btn btn--orange ">Jetzt inspirieren lassen</a>
 
   <div class="space--xxl"></div>
-  <div class="width width--md text--white text--bold" >Nur einen Klick entfernt: <br>Navigieren Sie einfach über die Pins und erkunden Ihr Lieblingsreiseziel.</div>
+  <div class="width width--md text--white text--bold" >Nur einen Klick entfernt: <br>Navigieren Sie einfach über die Markierungsfähnchen und erkunden Ihr Lieblingsreiseziel.</div>
 
 </div>
 </div>
@@ -85,14 +85,14 @@ countries:
 <script>
 function on() {
     document.getElementById("overlay").style.display = "block";
-    document.getElementById("bvitem").style.display = "none";
+    document.getElementById("mydiv").style.display = "none";
     document.getElementById("scroll").style.overflow = "hidden";
     document.getElementById("map").classList.add("disable-scroll");
 }
 
 function off() {
     document.getElementById("overlay").style.display = "none";
-    document.getElementById("bvitem").style.display = "block";
+    document.getElementById("mydiv").style.display = "block";
     document.getElementById("scroll").style.overflow = "scroll";
     document.getElementById("map").classList.remove("disable-scroll");
 
@@ -101,6 +101,20 @@ function off() {
 
 
 
+
+<!-- drop down -->
+<div id="mydiv" onclick="toggleState(mylist)">
+<div id="mydivheader">Land wählen:   <span style="float:right; font-size:20px;">+</span></div>
+
+<div id="mylist" style="" class="off">
+  {% for country in page.countries %}
+
+    <a href="{{country.url}}" target="_blank" class="popup-link">{{country.title}} </a>
+
+  {% endfor %}
+  </div>
+
+</div>
 
 
 
@@ -115,6 +129,53 @@ function toggleState(item){
    }
 }
 
+//Make the DIV element draggagle:
+/*
+dragElement(document.getElementById("mydiv"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id)) {
+    // if present, the header is where you move the DIV from:
+
+    document.getElementById(elmnt.id).onmousedown = dragMouseDown;
+    document.getElementById(elmnt.id).ontouchstart = ontouchmove;
+  } else {
+    // otherwise, move the DIV from anywhere inside the DIV:
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    // stop moving when mouse button is released:
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+*/
 
 </script>
 
@@ -122,15 +183,14 @@ function toggleState(item){
 <div id='map' ></div>
 <div id='bvmap' >
   <div id="bvitem" onclick="toggleState(mylist)">
-    <a class="text--upper">Land wählen:   <span style="float:right; font-size:20px; margin-top: -5px; ">+</span></a>
-    <div id="mylist" style="" class="off">
-      {% for country in page.countries %}
+    <div id="">Land wählen:  <span style="float:right; font-size:20px;">+</span></div>
+  <div id="" style="" class="off">
+    {% for country in page.countries %}
 
-        <a href="{{country.url}}" target="_blank" class="popup-link">{{country.title}} </a>
+      <a href="{{country.url}}" target="_blank" class="popup-link">{{country.title}} </a>
 
-      {% endfor %}
-      </div>
-  </div>
+    {% endfor %}
+    </div></div>
 </div>
 
 
@@ -142,8 +202,6 @@ function toggleState(item){
       Die Welt liegt Ihnen zu Füßen, die passenden Reiseziele stellen wir Ihnen hier vor.
   </div>
 <div class="space--lg"></div>
-
-
 
 </div>
 

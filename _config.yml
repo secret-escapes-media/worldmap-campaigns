@@ -9,10 +9,10 @@ description: >
 
 # file paths
 url:     "http://mp.secretescapes.com" # the base hostname & protocol for your site
-baseurl: "/campaign-map" # the subpath of your site, e.g. /blog/
-img:     "/campaign-map/_assets/img"
-css:     "/campaign-map/_assets/css"
-js:      "/campaign-map/_assets/js"
+baseurl: "/de/campaign-map" # the subpath of your site, e.g. /blog/
+img:     "/de/campaign-map/_assets/img"
+css:     "/de/campaign-map/_assets/css"
+js:      "/de/campaign-map/_assets/js"
 
 
 # Build settings
